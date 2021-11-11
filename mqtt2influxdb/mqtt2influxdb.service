@@ -1,0 +1,14 @@
+[Unit]
+Description=MQTT to InfluxDB
+[Service]
+User=ubuntu
+#Code to execute
+#Can be the path to an executable or code itself
+WorkingDirectory=/home/ubuntu/git/k34n/mqtt2influxdb
+ExecStart=/home/ubuntu/git/k34n/mqtt2influxdb/mqtt2influxdb.sh
+Type=simple
+TimeoutStopSec=10
+Restart=on-failure
+RestartSec=5
+[Install]
+WantedBy=multi-user.target

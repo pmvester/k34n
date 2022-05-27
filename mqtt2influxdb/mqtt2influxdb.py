@@ -34,13 +34,14 @@ def on_message(client, userdata, msg):
     print(str(msg.payload))
     try:
       pl = json.loads(msg.payload)
-      if msg.topic == "k34/bmp085":
+      if msg.topic == "k34/bme280":
         json_body = [
           {
             "measurement": "technical",
             "time": pl["time"] * 1000000,
             "fields": {
               "pressure": pl["pressure"],
+              "humidity": pl["humidity"],
               "temperature": pl["temperature"]
             }
           }

@@ -1,0 +1,5 @@
+from(bucket: "k34db")
+  |> range(start: -24h, stop: now())
+  |> filter(fn: (r) => r["_measurement"] == "archive")
+  |> filter(fn: (r) => r["_field"] == "temperature")
+  |> max()
